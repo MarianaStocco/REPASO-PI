@@ -2,9 +2,8 @@ const { Episode, Character } = require("../../db");
 const axios = require('axios')
 
 const getEpisodes = async () => {
-    if (!(await Episode.finAll()).length) {
-        const nPages = await axios.get('https://rickandmortyapi.com/api/episode')
-            .data.info.pages;
+    if (!(await Episode.findAll()).length) {
+        const nPages = 3;
         const links = [];
         for (let i = 1; i <= nPages; i++) {
             links.push(`https://rickandmortyapi.com/api/episode?page=${i}`);

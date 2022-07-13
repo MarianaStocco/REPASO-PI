@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     const { name } = req.query;
     let episodesTotal = await getEpisodes();
     try {
-        /* Filtrado de la matriz de episodiosTotal por la propiedad de nombre pasado a minúscula que incluya el nombre de la based de datos también en minúscula. */
+        /* Filtrado de la matriz de episodiosTotal por la propiedad de nombre pasado a minúscula que incluya el nombre de la base de datos también en minúscula. */
         if (name) {
             let episodeName = await episodesTotal.filter(e =>
                 e.name.toLowerCase().includes(name.toLowerCase()))
